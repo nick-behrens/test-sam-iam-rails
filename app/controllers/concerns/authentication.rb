@@ -27,7 +27,7 @@ module Authentication
       raise e
     end
 
-    @token_claims = access_token.claims
+    @access_token = access_token
 
     true
   end
