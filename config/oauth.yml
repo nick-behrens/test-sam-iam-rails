@@ -1,0 +1,33 @@
+default: &default
+  oidc_provider: <%= ENV['OIDC_PROVIDER'] %>
+  client_id: <%= ENV['CLIENT_ID'] %>
+  client_secret: <%= ENV['CLIENT_SECRET'] %>
+  audiences:
+    - <%= ENV["PRIMARY_JWT_AUDIENCE"] %>
+    - <%= ENV['SECONDARY_JWT_AUDIENCE'] %>
+  issuers:
+    - <%= ENV["PRIMARY_JWT_ISSUER"] %>
+    - <%= ENV["SECONDARY_JWT_ISSUER"] %>
+
+development:
+  <<: *default
+  oidc_provider: 'https://login.staging.snpd.io'
+  audiences:
+    - 'api-dev.snapdocs.com'
+    - 'https://api.*.snpd.io/settlementorders'
+  issuers:
+    - "https://dev-1pohn3ce.us.auth0.com"
+    - "https://keycloak.staging.snpd.io"
+    - "https://login.staging.snpd.io/"
+
+test:
+  <<: *default
+  issuers:
+    - "https://dev-1pohn3ce.us.auth0.com"
+    - "https://keycloak.staging.snpd.io"
+
+production: &production
+  <<: *default
+
+staging:
+  <<: *production
