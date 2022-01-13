@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
 
-    response = http.request_get('/api/orders', Authorization: access_token.authorization_header)
+    response = http.request_get('/api/orders', Authorization: access_token.to_authorization_header)
     json = JSON.parse(response.body)
     case response
     when Net::HTTPSuccess
