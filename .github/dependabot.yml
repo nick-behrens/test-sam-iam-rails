@@ -1,0 +1,14 @@
+version: 2
+registries:
+  nexus-registry:
+    type: rubygems-server
+    url: https://nexus.infra.snpd.io/repository/snapdocs/
+    username: ${{secrets.NEXUS_USERNAME}}
+    password: ${{secrets.NEXUS_PASSWORD}}  # Must be an unencoded password
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    registries:
+      - nexus-registry # Allow version updates for dependencies in this registry
+    schedule:
+      interval: "daily"
