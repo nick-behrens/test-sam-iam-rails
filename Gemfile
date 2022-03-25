@@ -11,7 +11,7 @@ gem 'puma', '~> 5.0'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
-gem 'sam-oauth2', '~> 1.0.0'
+gem 'sam-oauth2', '~> 1.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
