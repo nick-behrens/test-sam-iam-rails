@@ -7,7 +7,7 @@ ruby '2.6.6'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 gem 'pg', '1.2.3'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.6'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
